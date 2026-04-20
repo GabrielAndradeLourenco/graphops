@@ -70,7 +70,7 @@ A BFS serve pra gente simular o que acontece quando um serviço cai. A ideia é:
 
 ## 2. Arquitetura em Camadas
 
-![Diagrama de arquitetura](./arquitetura_e2.png)
+![Diagrama de arquitetura](./arquitetura_e2.drawio.png)
 
 ### Descrição das camadas
 

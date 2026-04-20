@@ -12,8 +12,8 @@
 |-------|---------------|
 | Nome do projeto | GraphOps |
 | Repositório GitHub | https://github.com/GabrielAndradeLourenco/graphops |
-| Integrante 1 | Fernando Januário — RA 38772752 |
-| Integrante 2 | Gabriel Andrade — RA 38332167 |
+| Integrante 1 | Fernando Januário, RA 38772752 |
+| Integrante 2 | Gabriel Andrade, RA 38332167 |
 
 ---
 
@@ -31,7 +31,7 @@
 
 **Por que este algoritmo foi escolhido?**
 
-A gente pensou primeiro em usar PageRank ou degree centrality pra achar os serviços mais importantes, mas percebemos que ter muitas conexões não significa necessariamente ser crítico. Um serviço de logging, por exemplo, recebe chamadas de todo mundo mas se ele cair não derruba nenhum fluxo de negócio. O que realmente importa é se o serviço fica "no meio do caminho" entre outros — e é isso que o Betweenness Centrality mede. Ele calcula quantos caminhos mínimos passam por cada vértice, então um Auth Service que aparece no meio de vários fluxos vai ter um valor alto, indicando que é um SPOF de verdade.
+A gente pensou primeiro em usar PageRank ou degree centrality pra achar os serviços mais importantes, mas percebemos que ter muitas conexões não significa necessariamente ser crítico. Um serviço de logging, por exemplo, recebe chamadas de todo mundo mas se ele cair não derruba nenhum fluxo de negócio. O que realmente importa é se o serviço fica no meio do caminho entre outros, e é isso que o Betweenness Centrality mede. Ele calcula quantos caminhos mínimos passam por cada vértice, então um Auth Service que aparece no meio de vários fluxos vai ter um valor alto, indicando que é um SPOF de verdade.
 
 **Alternativa descartada e motivo:**
 
@@ -41,7 +41,7 @@ A gente pensou primeiro em usar PageRank ou degree centrality pra achar os servi
 
 **Limitações no contexto do problema:**
 
-- O algoritmo parte do princípio que a comunicação entre serviços segue caminhos mínimos, o que nem sempre é verdade — em ambientes com load balancers ou circuit breakers o tráfego pode ir por rotas diferentes. Além disso, se o grafo ficar muito grande (tipo milhares de serviços), O(V·E) pode ficar pesado e talvez precise de alguma estratégia de amostragem.
+- O algoritmo parte do princípio que a comunicação entre serviços segue caminhos mínimos, o que nem sempre é verdade. Em ambientes com load balancers ou circuit breakers o tráfego pode ir por rotas diferentes. Além disso, se o grafo ficar muito grande (tipo milhares de serviços), O(V·E) pode ficar pesado e talvez precise de alguma estratégia de amostragem.
 
 **Referência bibliográfica:**
 
@@ -70,37 +70,7 @@ A BFS serve pra gente simular o que acontece quando um serviço cai. A ideia é:
 
 ## 2. Arquitetura em Camadas
 
-> Diagrama em texto (a versão visual vai em `./docs/arquitetura_e2.png`):
-
-```
-┌─────────────────────────────────────────────────┐
-│              APRESENTAÇÃO (CLI)                  │
-│  main.py — interface de linha de comando         │
-│  Exibe resultados, recebe parâmetros do usuário  │
-└──────────────────────┬──────────────────────────┘
-                       │
-┌──────────────────────▼──────────────────────────┐
-│            APLICAÇÃO (Service)                   │
-│  analysis_service.py — orquestra os fluxos:      │
-│  carregar grafo → executar algoritmo → formatar  │
-└──────────────────────┬──────────────────────────┘
-                       │
-┌──────────────────────▼──────────────────────────┐
-│              DOMÍNIO (Core)                      │
-│  graph.py — estrutura do grafo (lista adjacência)│
-│  betweenness.py — Betweenness Centrality         │
-│  cascade.py — simulação de falha via BFS         │
-└──────────────────────┬──────────────────────────┘
-                       │
-┌──────────────────────▼──────────────────────────┐
-│          INFRAESTRUTURA (I/O)                    │
-│  file_reader.py — leitura de JSON                │
-│  file_writer.py — exportação de resultados       │
-│  graph_generator.py — geração aleatória          │
-└─────────────────────────────────────────────────┘
-```
-
-![Diagrama de arquitetura](./docs/arquitetura_e2.png)
+![Diagrama de arquitetura](./arquitetura_e2.png)
 
 ### Descrição das camadas
 

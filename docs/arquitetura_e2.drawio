@@ -1,0 +1,96 @@
+<mxfile host="app.diagrams.net" modified="2026-04-13" agent="Kiro" version="21.0.0" type="device">
+  <diagram name="Arquitetura GraphOps" id="graphops-arch-e2">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Título -->
+        <mxCell id="title" value="GraphOps — Arquitetura em Camadas" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="100" y="30" width="600" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Camada 1: Apresentação -->
+        <mxCell id="layer1-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="600" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="layer1-title" value="Apresentação (CLI)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="120" y="108" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="layer1-box" value="main.py&#xa;Interface de linha de comando&#xa;Recebe parâmetros · Exibe resultados" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="200" y="140" width="400" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Seta 1→2 -->
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#555555;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="220" as="sourcePoint" />
+            <mxPoint x="400" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Camada 2: Aplicação -->
+        <mxCell id="layer2-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="260" width="600" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="layer2-title" value="Aplicação (Service)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="120" y="268" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="layer2-box" value="analysis_service.py&#xa;Orquestra os fluxos de análise&#xa;Carregar grafo → Executar algoritmo → Formatar resultado" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="200" y="300" width="400" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Seta 2→3 -->
+        <mxCell id="arrow2" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#555555;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="380" as="sourcePoint" />
+            <mxPoint x="400" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Camada 3: Domínio -->
+        <mxCell id="layer3-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="420" width="600" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="layer3-title" value="Domínio (Core)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="120" y="428" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="layer3-box1" value="graph.py&#xa;Grafo dirigido ponderado&#xa;(lista de adjacência)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="130" y="460" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="layer3-box2" value="betweenness.py&#xa;Betweenness Centrality&#xa;O(V · E)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="315" y="460" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="layer3-box3" value="cascade.py&#xa;Simulação de falha (BFS)&#xa;O(V + E)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="500" y="460" width="170" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Seta 3→4 -->
+        <mxCell id="arrow3" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#555555;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="570" as="sourcePoint" />
+            <mxPoint x="400" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Camada 4: Infraestrutura -->
+        <mxCell id="layer4-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="610" width="600" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="layer4-title" value="Infraestrutura (I/O)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="120" y="618" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="layer4-box1" value="file_reader.py&#xa;Leitura de JSON" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="130" y="650" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="layer4-box2" value="file_writer.py&#xa;Exportação de resultados" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="315" y="650" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="layer4-box3" value="graph_generator.py&#xa;Geração aleatória de grafos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="500" y="650" width="170" height="80" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

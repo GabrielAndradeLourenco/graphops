@@ -11,9 +11,9 @@
 | Campo | Preenchimento |
 |-------|---------------|
 | Nome do projeto | GraphOps |
-| Repositório GitHub | https://github.com/graphops-project/graphops |
-| Integrante 1 | Fernando Januário — RA 000000 |
-| Integrante 2 | Gabriel Andrade — RA 000000 |
+| Repositório GitHub | https://github.com/GabrielAndradeLourenco/graphops |
+| Integrante 1 | Fernando Januário — RA 38772752 |
+| Integrante 2 | Gabriel Andrade — RA 38332167 |
 
 ---
 

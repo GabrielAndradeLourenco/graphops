@@ -1,0 +1,21 @@
+{
+  "vertices": [
+    { "id": 0, "nome": "Gateway" },
+    { "id": 1, "nome": "Auth" },
+    { "id": 2, "nome": "Payment" },
+    { "id": 3, "nome": "Inventory" },
+    { "id": 4, "nome": "Notification" },
+    { "id": 5, "nome": "Logging" }
+  ],
+  "arestas": [
+    { "origem": 0, "destino": 1, "peso": 12 },
+    { "origem": 0, "destino": 2, "peso": 8 },
+    { "origem": 2, "destino": 1, "peso": 15 },
+    { "origem": 1, "destino": 3, "peso": 20 },
+    { "origem": 3, "destino": 4, "peso": 5 },
+    { "origem": 2, "destino": 4, "peso": 10 },
+    { "origem": 0, "destino": 5, "peso": 3 },
+    { "origem": 1, "destino": 5, "peso": 2 },
+    { "origem": 2, "destino": 5, "peso": 4 }
+  ]
+}
